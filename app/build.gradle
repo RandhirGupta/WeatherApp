@@ -72,6 +72,11 @@ android {
         implementation deps.daggerAndroid
         implementation deps.daggerAndroidSupport
 
+        kapt deps.daggerCompiler
+        kapt deps.daggerAndroidCompiler
+
+        kapt deps.archCompiler
+
         testImplementation deps.junitLibs
         testImplementation deps.mockWebServer
         testImplementation(deps.archCoreTesting, {

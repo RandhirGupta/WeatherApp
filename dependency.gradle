@@ -2,7 +2,7 @@ ext {
 
 // App dependencies
     supportLibraryVersion = '28.0.0'
-    archLifecycleVersion = "1.0.0-rc1"
+    archLifecycleVersion = "1.1.1"
     playService = "11.0.0"
 
 // Retrofit
@@ -25,35 +25,39 @@ ext {
 
     dependency = [
             // Support Libs
-            appCompatLib        : "com.android.support:appcompat-v7:$supportLibraryVersion",
+            appCompatLib         : "com.android.support:appcompat-v7:$supportLibraryVersion",
 
             // Arch Components
-            archExtension       : "android.arch.lifecycle:extensions:$archLifecycleVersion",
+            archExtension        : "android.arch.lifecycle:extensions:$archLifecycleVersion",
 
             // Location Tracker
-            playLocation        : "com.google.android.gms:play-services-location:$playService",
+            playLocation         : "com.google.android.gms:play-services-location:$playService",
 
             // Retrofit
-            retrofit2           : "com.squareup.retrofit2:retrofit:$retrofitVersion",
-            retrofit2Logger     : "com.squareup.okhttp3:logging-interceptor:$retrofitLoggerVersion",
-            gsonConverter       : "com.squareup.retrofit2:converter-gson:$retrofitGsonConvVersion",
+            retrofit2            : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofit2Logger      : "com.squareup.okhttp3:logging-interceptor:$retrofitLoggerVersion",
+            gsonConverter        : "com.squareup.retrofit2:converter-gson:$retrofitGsonConvVersion",
 
             // Dagger
-            daggerRuntime       : "com.google.dagger:dagger:$daggerVersion",
-            daggerAndroid       : "com.google.dagger:dagger-android:$daggerVersion",
-            daggerAndroidSupport: "com.google.dagger:dagger-android-support:$daggerVersion",
+            daggerRuntime        : "com.google.dagger:dagger:$daggerVersion",
+            daggerAndroid        : "com.google.dagger:dagger-android:$daggerVersion",
+            daggerAndroidSupport : "com.google.dagger:dagger-android-support:$daggerVersion",
+
+            daggerCompiler       : "com.google.dagger:dagger-compiler:$daggerVersion",
+            daggerAndroidCompiler: "com.google.dagger:dagger-android-processor:$daggerVersion",
+            archCompiler         : "android.arch.lifecycle:compiler:$archLifecycleVersion",
 
             // Kotlin
-            kotlinStdLib        : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
+            kotlinStdLib         : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
 
             // Test
-            junitLibs           : "junit:junit:$junitVersion",
-            mockWebServer       : "com.squareup.okhttp3:mockwebserver:$mockWebServer",
-            archCoreTesting     : "android.arch.core:core-testing:$archLifecycleVersion",
-            mockitoCore         : "org.mockito:mockito-core:$mockito",
-            hamcrest            : "org.hamcrest:hamcrest-all:$hamcrest",
+            junitLibs            : "junit:junit:$junitVersion",
+            mockWebServer        : "com.squareup.okhttp3:mockwebserver:$mockWebServer",
+            archCoreTesting      : "android.arch.core:core-testing:$archLifecycleVersion",
+            mockitoCore          : "org.mockito:mockito-core:$mockito",
+            hamcrest             : "org.hamcrest:hamcrest-all:$hamcrest",
 
-            espressoCore        : "com.android.support.test.espresso:espresso-core:$espressCoreVersion",
+            espressoCore         : "com.android.support.test.espresso:espresso-core:$espressCoreVersion",
 
     ]
 }
