@@ -1,0 +1,89 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+def globalConf = rootProject.ext
+
+android {
+    compileSdkVersion globalConf.compileSdkVersion
+
+    defaultConfig {
+        def versionMajor = 0
+        def versionMinor = 1
+        def versionPatch = 0
+
+        def versionFullName = "${versionMajor}.${versionMinor}.${versionPatch}"
+        def versionCodeFinal = versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100
+
+        applicationId "com.example.cyborg.weatherapp"
+
+        minSdkVersion globalConf.minSdkVersion
+        targetSdkVersion globalConf.targetSdkVersion
+
+        versionCode versionCodeFinal
+        versionName "${versionFullName}"
+
+        multiDexEnabled true
+        multiDexEnabled true
+
+        /*Enabled Vector Support*/
+        vectorDrawables.useSupportLibrary = true
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildTypes {
+            release {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            }
+        }
+
+        lintOptions {
+            abortOnError false
+        }
+
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+    }
+
+    dependencies {
+        implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+        Map<String, String> deps = globalConf.dependency
+
+        implementation deps.kotlinStdLib
+
+        implementation deps.appCompatLib
+        implementation deps.archExtension
+
+        implementation deps.playLocation
+
+        implementation deps.retrofit2
+        implementation deps.retrofit2Logger
+        implementation deps.gsonConverter
+
+        implementation deps.daggerRuntime
+        implementation deps.daggerAndroid
+        implementation deps.daggerAndroidSupport
+
+        testImplementation deps.junitLibs
+        testImplementation deps.mockWebServer
+        testImplementation(deps.archCoreTesting, {
+            exclude group: 'com.android.support', module: 'support-compat'
+            exclude group: 'com.android.support', module: 'support-annotations'
+            exclude group: 'com.android.support', module: 'support-core-utils'
+        })
+        testImplementation deps.mockitoCore
+        testImplementation deps.hamcrest
+
+        androidTestImplementation(deps.espressoCore, {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        })
+    }
+}

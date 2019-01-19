@@ -1,0 +1,59 @@
+ext {
+
+// App dependencies
+    supportLibraryVersion = '28.0.0'
+    archLifecycleVersion = "1.0.0-rc1"
+    playService = "11.0.0"
+
+// Retrofit
+    retrofitVersion = "2.3.0"
+    retrofitLoggerVersion = "3.4.1"
+    retrofitGsonConvVersion = "2.1.0"
+
+// Dagger
+    daggerVersion = "2.11"
+
+// Test
+    junitVersion = '4.12'
+    espressCoreVersion = '2.2.2'
+    mockWebServer = '3.8.0'
+    mockito = "2.7.19"
+    hamcrest = "1.3"
+
+// Kotlin
+    kotlinVersion = "1.2.41"
+
+    dependency = [
+            // Support Libs
+            appCompatLib        : "com.android.support:appcompat-v7:$supportLibraryVersion",
+
+            // Arch Components
+            archExtension       : "android.arch.lifecycle:extensions:$archLifecycleVersion",
+
+            // Location Tracker
+            playLocation        : "com.google.android.gms:play-services-location:$playService",
+
+            // Retrofit
+            retrofit2           : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofit2Logger     : "com.squareup.okhttp3:logging-interceptor:$retrofitLoggerVersion",
+            gsonConverter       : "com.squareup.retrofit2:converter-gson:$retrofitGsonConvVersion",
+
+            // Dagger
+            daggerRuntime       : "com.google.dagger:dagger:$daggerVersion",
+            daggerAndroid       : "com.google.dagger:dagger-android:$daggerVersion",
+            daggerAndroidSupport: "com.google.dagger:dagger-android-support:$daggerVersion",
+
+            // Kotlin
+            kotlinStdLib        : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
+
+            // Test
+            junitLibs           : "junit:junit:$junitVersion",
+            mockWebServer       : "com.squareup.okhttp3:mockwebserver:$mockWebServer",
+            archCoreTesting     : "android.arch.core:core-testing:$archLifecycleVersion",
+            mockitoCore         : "org.mockito:mockito-core:$mockito",
+            hamcrest            : "org.hamcrest:hamcrest-all:$hamcrest",
+
+            espressoCore        : "com.android.support.test.espresso:espresso-core:$espressCoreVersion",
+
+    ]
+}
