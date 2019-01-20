@@ -1,6 +1,6 @@
 package com.example.cyborg.weatherapp.injection
 
-import com.example.cyborg.weatherapp.ui.LandingActivity
+import com.example.cyborg.weatherapp.ui.activity.LandingActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

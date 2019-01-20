@@ -2,7 +2,7 @@ package com.example.cyborg.weatherapp.injection
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
-import com.example.cyborg.weatherapp.ui.LandingViewModel
+import com.example.cyborg.weatherapp.ui.activity.LandingViewModel
 import com.example.cyborg.weatherapp.viewmodel.WeatherViewModelFactory
 import dagger.Binds
 import dagger.Module

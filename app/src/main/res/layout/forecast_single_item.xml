@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+                name="forecastDayData"
+                type="com.example.cyborg.weatherapp.network.model.Forecastday"/>
+    </data>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_62"
+            android:gravity="center">
+
+        <TextView
+                android:id="@+id/forecast_day_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_toLeftOf="@id/forecast_temp_text_view"
+                android:layout_toStartOf="@id/forecast_temp_text_view"/>
+
+        <TextView
+                android:id="@+id/forecast_temp_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:layout_marginRight="@dimen/dp_16"/>
+    </RelativeLayout>
+</layout>

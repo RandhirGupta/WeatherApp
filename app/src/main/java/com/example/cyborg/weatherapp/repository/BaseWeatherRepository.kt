@@ -8,5 +8,9 @@ import com.example.cyborg.weatherapp.network.model.ForecastWeatherResponse
 interface BaseWeatherRepository {
     fun getCurrentWeatherData(apiToken: String, location: String): LiveData<ApiResponse<CurrentWeatherResponse>>
 
-    fun getForeCastWeatherData(apiToken: String, location: String): LiveData<ApiResponse<ForecastWeatherResponse>>
+    fun getForeCastWeatherData(
+        apiToken: String,
+        location: String?,
+        noOfDays: Int
+    ): LiveData<ApiResponse<ForecastWeatherResponse>>
 }

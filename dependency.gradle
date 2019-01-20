@@ -26,6 +26,7 @@ ext {
     dependency = [
             // Support Libs
             appCompatLib         : "com.android.support:appcompat-v7:$supportLibraryVersion",
+            designLib            : "com.android.support:design:$supportLibraryVersion",
 
             // Arch Components
             archExtension        : "android.arch.lifecycle:extensions:$archLifecycleVersion",

@@ -15,5 +15,5 @@ interface ApiService {
 
     @GET("forecast.json?")
     @Headers("Content-Type: application/json")
-    fun getForecastWeatherData(@Query("key") apiToken: String, @Query("q") location: String): LiveData<ApiResponse<ForecastWeatherResponse>>
+    fun getForecastWeatherData(@Query("key") apiToken: String, @Query("q") location: String?, @Query("days") noOfDays: Int): LiveData<ApiResponse<ForecastWeatherResponse>>
 }

@@ -1,9 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.LandingActivity">
+<layout xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</LinearLayout>
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+                name="viewModel"
+                type="com.example.cyborg.weatherapp.ui.activity.LandingViewModel"/>
+
+        <variable
+                name="forecastDayData"
+                type="com.example.cyborg.weatherapp.network.model.Forecastday"/>
+    </data>
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.activity.LandingActivity"
+            android:background="@android:color/white">
+
+        <LinearLayout
+                android:id="@+id/successLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@color/background_color"
+                    android:paddingTop="@dimen/dp_56"
+                    android:paddingBottom="@dimen/dp_62">
+                <TextView
+                        android:id="@+id/forecastTempTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/sp_96"
+                        android:layout_gravity="center"
+                        android:gravity="center"/>
+
+                <TextView
+                        android:id="@+id/forecastLocationTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/sp_36"
+                        android:layout_gravity="center"
+                        android:gravity="center"/>
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/forecastRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:background="@android:color/white"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    tools:listitem="@layout/forecast_single_item"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/errorLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="@dimen/dp_16"
+                android:visibility="@{viewModel.showErrorView}"
+                android:background="@color/error_background_color">
+
+            <TextView android:id="@+id/error_message_text_view"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_gravity="center"
+                      android:gravity="center"
+                      android:textColor="@android:color/white"
+                      android:text="@string/error_message"
+                      android:textSize="@dimen/sp_54"/>
+
+            <Button android:id="@+id/retry_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_44"
+                    android:background="@color/retry_button_color"
+                    android:textColor="@android:color/white"
+                    android:text="@string/retry"/>
+        </LinearLayout>
+
+        <RelativeLayout
+                android:id="@+id/loading_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:animateLayoutChanges="true"
+                android:background="@color/background_color"
+                android:visibility="@{viewModel.showLoader}">
+
+            <ImageButton
+                    android:id="@+id/loading_view_pb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_loading"
+                    android:indeterminate="true"
+                    android:interpolator="@anim/linear_interpolator"
+                    tools:ignore="ContentDescription"/>
+        </RelativeLayout>
+
+        <TextView
+                android:id="@+id/gpsMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/gps_setting"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:layout_margin="@dimen/dp_16"
+                android:layout_gravity="bottom"
+                android:visibility="visible"/>
+
+    </FrameLayout>
+
+</layout>

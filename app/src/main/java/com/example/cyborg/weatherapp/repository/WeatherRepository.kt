@@ -13,8 +13,9 @@ class WeatherRepository @Inject internal constructor(private val mApiService: Ap
 
     override fun getForeCastWeatherData(
         apiToken: String,
-        location: String
-    ): LiveData<ApiResponse<ForecastWeatherResponse>> = mApiService.getForecastWeatherData(apiToken, location)
+        location: String?,
+        noOfDays: Int
+    ): LiveData<ApiResponse<ForecastWeatherResponse>> = mApiService.getForecastWeatherData(apiToken, location, noOfDays)
 
     override fun getCurrentWeatherData(
         apiToken: String,
