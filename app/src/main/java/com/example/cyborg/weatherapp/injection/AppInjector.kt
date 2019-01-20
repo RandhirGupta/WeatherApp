@@ -9,7 +9,6 @@ import android.support.v4.app.FragmentManager
 import com.example.cyborg.weatherapp.WeatherApp
 import dagger.android.AndroidInjection
 import dagger.android.support.AndroidSupportInjection
-import dagger.android.support.HasSupportFragmentInjector
 
 object AppInjector {
     fun init(app: WeatherApp) {
@@ -49,7 +48,7 @@ object AppInjector {
     }
 
     private fun handleActivity(activity: Activity) {
-        if (activity is HasSupportFragmentInjector) {
+        if (activity is Injectable) {
             AndroidInjection.inject(activity)
         }
         if (activity is FragmentActivity) {

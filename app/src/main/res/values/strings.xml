@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WeatherApp</string>
+    <string name="api_token">f93ca2b0edc34e5ea3f171032191901</string>
 </resources>
