@@ -7,6 +7,7 @@ import android.arch.lifecycle.ViewModelProviders
 import android.content.pm.PackageManager
 import android.databinding.DataBindingUtil
 import android.location.Location
+import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
@@ -14,6 +15,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
 import android.view.View
 import android.view.animation.AnimationUtils
+import com.example.cyborg.weatherapp.BuildConfig
 import com.example.cyborg.weatherapp.R
 import com.example.cyborg.weatherapp.databinding.ActivityLandingBinding
 import com.example.cyborg.weatherapp.injection.Injectable
@@ -88,7 +90,7 @@ class LandingActivity : AppCompatActivity(), Injectable, FetchLocationAddressAsy
     }
 
     private fun getDataFromLocation(location: String?) {
-        mLandingViewModel.getForeCastWeatherData(getString(R.string.api_token), location, 5)
+        mLandingViewModel.getForeCastWeatherData(BuildConfig.WEATHER_API_TOKEN, location, 5)
 
         mLandingViewModel.forecastWeatherResponse.observe(this, Observer {
             if (it != null) {

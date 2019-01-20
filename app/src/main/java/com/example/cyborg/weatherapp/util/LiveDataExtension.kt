@@ -11,10 +11,10 @@ fun <T, X> switchMapForApiResponse(
 
     val response = Transformations.map(liveData) {
         when (it) {
-            is ApiIsLoading -> {
-                doOnSubscribe?.invoke()
-                null
-            }
+//            is ApiIsLoading -> {
+//                doOnSubscribe?.invoke()
+//                null
+//            }
             is ApiSuccessResponse -> {
                 val responseBody = it.body
                 doOnSuccess?.invoke(responseBody)

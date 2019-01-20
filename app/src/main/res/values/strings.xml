@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">WeatherApp</string>
-    <string name="api_token">f93ca2b0edc34e5ea3f171032191901</string>
     <string name="retry">retry</string>
     <string name="error_message">Something went wrong at our end!</string>
     <string name="gps_setting">Please enable gps to continue</string>

@@ -39,6 +39,10 @@ android {
             release {
                 minifyEnabled false
                 proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+                buildConfigField("String", "WEATHER_API_TOKEN", "f93ca2b0edc34e5ea3f171032191901")
+            }
+            debug{
+                buildConfigField("String", "WEATHER_API_TOKEN", "\"f93ca2b0edc34e5ea3f171032191901\"")
             }
         }
 
