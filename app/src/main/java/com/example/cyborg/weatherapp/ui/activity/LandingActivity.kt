@@ -122,6 +122,7 @@ class LandingActivity : AppCompatActivity(), Injectable, FetchLocationAddressAsy
         mBinding.forecastRecyclerView.addItemDecoration(itemDecorator)
         mBinding.retryButton.setOnClickListener {
             startLocationUpdates()
+            startRotatingImage()
         }
     }
 

@@ -52,6 +52,7 @@ class LandingViewModel @Inject constructor(application: Application, private val
 //    }
 
     fun getForeCastWeatherData(apiToken: String, location: String?, noOfDays: Int) {
+        showLoader.value = View.VISIBLE
         forecastWeatherResponse = Transformations.switchMap(loadForecastWeatherData) {
             switchMapForApiResponse(
                 weatherRepository.getForeCastWeatherData(apiToken, location, noOfDays),
