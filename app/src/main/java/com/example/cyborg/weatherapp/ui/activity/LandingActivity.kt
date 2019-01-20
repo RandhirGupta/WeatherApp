@@ -118,6 +118,9 @@ class LandingActivity : AppCompatActivity(), Injectable, FetchLocationAddressAsy
         val itemDecorator = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
         ContextCompat.getDrawable(this, R.drawable.line_divider)?.let { itemDecorator.setDrawable(it) }
         mBinding.forecastRecyclerView.addItemDecoration(itemDecorator)
+        mBinding.retryButton.setOnClickListener {
+            startLocationUpdates()
+        }
     }
 
     private fun startRotatingImage() {
