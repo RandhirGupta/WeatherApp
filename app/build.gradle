@@ -41,7 +41,7 @@ android {
                 proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
                 buildConfigField("String", "WEATHER_API_TOKEN", "f93ca2b0edc34e5ea3f171032191901")
             }
-            debug{
+            debug {
                 buildConfigField("String", "WEATHER_API_TOKEN", "\"f93ca2b0edc34e5ea3f171032191901\"")
             }
         }
@@ -101,4 +101,8 @@ android {
             exclude group: 'com.android.support', module: 'support-annotations'
         })
     }
+}
+
+dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:+'
 }
