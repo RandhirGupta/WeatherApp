@@ -1,7 +1,6 @@
 package com.example.cyborg.weatherapp
 
 import android.arch.core.executor.testing.InstantTaskExecutorRule
-import android.arch.lifecycle.Observer
 import com.example.cyborg.weatherapp.repository.WeatherRepository
 import com.example.cyborg.weatherapp.ui.activity.LandingViewModel
 import org.hamcrest.CoreMatchers.notNullValue
@@ -21,7 +20,7 @@ class LandingViewModelTest {
     val instantExecutorRule = InstantTaskExecutorRule()
 
     private val repository = mock(WeatherRepository::class.java)
-    private var landingViewModel = LandingViewModel(repository)
+    private var landingViewModel = LandingViewModel(WeatherApp.getApplicationContext(), repository)
 
     @Test
     fun testNull() {

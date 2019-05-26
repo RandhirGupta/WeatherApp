@@ -95,14 +95,11 @@ android {
             exclude group: 'com.android.support', module: 'support-core-utils'
         })
         testImplementation deps.mockitoCore
+        testImplementation deps.mokitoKotlin
         testImplementation deps.hamcrest
 
         androidTestImplementation(deps.espressoCore, {
             exclude group: 'com.android.support', module: 'support-annotations'
         })
     }
-}
-
-dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:+'
 }

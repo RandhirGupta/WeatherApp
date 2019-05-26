@@ -1,9 +1,11 @@
 package com.example.cyborg.weatherapp
 
 import android.arch.core.executor.testing.InstantTaskExecutorRule
-import com.example.cyborg.weatherapp.network.ApiService
-import com.example.cyborg.weatherapp.network.ApiSuccessResponse
-import com.example.cyborg.weatherapp.network.LiveDataCallAdapterFactory
+import android.arch.lifecycle.MutableLiveData
+import android.arch.lifecycle.Observer
+import com.example.cyborg.weatherapp.network.*
+import com.example.cyborg.weatherapp.network.model.ForecastWeatherResponse
+import com.nhaarman.mockito_kotlin.mock
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import okio.Okio
@@ -30,6 +32,10 @@ class ApiServiceTest {
     private var apiService: ApiService? = null
 
     private var mockWebServer: MockWebServer? = null
+
+    var data = MutableLiveData<ApiResponse<ForecastWeatherResponse>>()
+
+    var apiResponseObserver: Observer<ForecastWeatherResponse?> = mock()
 
     @Before
     fun createApiService() {
@@ -58,6 +64,18 @@ class ApiServiceTest {
         val apiToken = BuildConfig.WEATHER_API_TOKEN
 
         val path = String.format(Locale.ENGLISH, "forecast.json?key=%s&q=%s&days=%d", apiToken, location, 5)
+
+        data.value = ApiIsLoading()
+
+        val liveData = (LiveDataTestUtil.getValue(
+            apiService?.getForecastWeatherData(
+                apiToken,
+                location,
+                5
+            )!!
+        ) as ApiSuccessResponse).body
+
+        apiResponseObserver.onChanged(liveData)
 
         val forecastWeatherData = (LiveDataTestUtil.getValue(
             apiService?.getForecastWeatherData(

@@ -22,4 +22,10 @@ class WeatherApp : Application(), HasActivityInjector {
     override fun activityInjector(): AndroidInjector<Activity>? {
         return dispatchingAndroidInjector
     }
+
+    companion object {
+        fun getApplicationContext(): Application {
+            return getApplicationContext()
+        }
+    }
 }
