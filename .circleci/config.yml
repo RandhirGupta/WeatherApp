@@ -13,21 +13,21 @@ jobs:
       JVM_OPTS: -Xmx4g
     steps:
       - checkout
-      - restore_cache:
-          key: gradle-{{ checksum "build.gradle" }}-{{ checksum  "WeatherApp/dependency.gradle" }}-{{ checksum  "gradle/wrapper/gradle-wrapper.properties" }}
+#      - restore_cache:
+#          key: gradle-{{ checksum "build.gradle" }}-{{ checksum  "WeatherApp/dependency.gradle" }}-{{ checksum  "gradle/wrapper/gradle-wrapper.properties" }}
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
-      - save_cache:
-          paths:
-            - ~/.gradle
-          key: gradle-{{ checksum "build.gradle" }}-{{ checksum  "dependency.gradle" }}-{{ checksum  "gradle/wrapper/gradle-wrapper.properties" }}
-      - run:
-          name: Run Detekt
-          command: ./gradlew detekt
-      - run:
-          name: Run Ktlint
-          command: ./gradlew ktlint
+#      - save_cache:
+#          paths:
+#            - ~/.gradle
+#          key: gradle-{{ checksum "build.gradle" }}-{{ checksum  "dependency.gradle" }}-{{ checksum  "gradle/wrapper/gradle-wrapper.properties" }}
+#      - run:
+#          name: Run Detekt
+#          command: ./gradlew detekt
+#      - run:
+#          name: Run Ktlint
+#          command: ./gradlew ktlint
       - run:
           name: Run Lint
           command: ./gradlew lintDebug
